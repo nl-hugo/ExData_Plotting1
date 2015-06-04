@@ -21,7 +21,7 @@ d <- read.table(file="./data/household_power_consumption.txt", header=TRUE, sep=
 
 # Convert to Date and Time
 d$Date <- as.Date(d$Date, "%d/%m/%Y")
-d$Time <- strptime(d$Time, "%H:%M:%S")
+d$DateTime <- as.POSIXct(paste(d$Date, d$Time))
 
 # Select data for 2007-02-01 and 2007-02-02 only
 d <- subset(d, Date >= "2007-02-01" & Date <= "2007-02-02")
