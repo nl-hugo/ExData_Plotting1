@@ -1,3 +1,9 @@
+#
+# Coursera | Exploratory Data Analysis
+# Project 1
+# plot1.R
+#
+
 # Check if data directory exists, create one if needed
 if (!file.exists("data")) {
   dir.create("data")
@@ -20,12 +26,12 @@ d$Time <- strptime(d$Time, "%H:%M:%S")
 # Select data for 2007-02-01 and 2007-02-02 only
 d <- subset(d, Date >= "2007-02-01" & Date <= "2007-02-02")
 
-#Note that in this dataset missing values are coded as ?.
-
+# Plot the histogram
 hist(d$Global_active_power, breaks=12, col="Red",
      main="Global Active Power", 
      xlab="Global Active Power (kilowatts)", 
      ylab="Frequency")
 
+# Save plot to file
 dev.copy(png, file="plot1.png", height=480, width=480)
 dev.off()
